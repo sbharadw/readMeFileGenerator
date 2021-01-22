@@ -3,13 +3,13 @@
 
 function renderLicenseBadge(license) {
 
-  if ('MIT'){
+  if (license === 'MIT'){
     return 'https://img.shields.io/badge/License-MIT-yellow.svg';
-  } else if ('ISC') {
+  } else if (license === 'ISC') {
     return 'https://img.shields.io/badge/License-ISC-blue.svg';
-  } else if ('Apache') {
+  } else if (license === 'Apache') {
     return 'https://img.shields.io/badge/License-Apache%202.0-blue.svg';
-  } else if ('IBM') {
+  } else if (license === 'IBM') {
     return 'https://img.shields.io/badge/License-IPL%201.0-blue.svg';
   } else {
     return '';
@@ -22,13 +22,13 @@ function renderLicenseBadge(license) {
 
 function renderLicenseLink(license) {
 
-  if ('MIT'){
+  if (license === 'MIT'){
     return 'https://opensource.org/licenses/MIT';
-  } else if ('ISC') {
+  } else if (license === 'ISC') {
     return 'https://opensource.org/licenses/ISC';
-  } else if ('Apache') {
+  } else if (license === 'Apache') {
     return 'https://opensource.org/licenses/Apache-2.0';
-  } else if ('IBM') {
+  } else if (license === 'IBM') {
     return 'https://opensource.org/licenses/IPL-1.0';
   } else {
     return '';
@@ -59,10 +59,10 @@ function generateMarkdown(data) {
 
   # <b>${data.name}</b>
 
-  ${renderLicenseBadge(data.license)}
+  * ${renderLicenseBadge(data.license)}
 
   ## Description
-  ${data.description}
+  * ${data.description}
 
   ## Table of Contents
   * [Installation](#installation)
@@ -77,7 +77,7 @@ function generateMarkdown(data) {
   * ${data.installation}
 
   ## Languages
-  ${data.languages}
+  * ${data.languages}
 
   ## Tests
   * ${data.tests}
@@ -85,11 +85,12 @@ function generateMarkdown(data) {
   ## Questions
   Contact me with any questions
   *  Github Name: ${data.name}
-  *  [E-mail:](${data.email})
-  *  [Git Repo Link:](${data.repo})
+  *  E-mail: ${data.email}
+  *  Git Repo Link: ${data.repo}
 
-  ##License
-  ${renderLicenseSection(data.projectName,data.license)}
+  ## License
+  * ${renderLicenseSection(data.projectName, data.license)}
+
 
   `;
 }
